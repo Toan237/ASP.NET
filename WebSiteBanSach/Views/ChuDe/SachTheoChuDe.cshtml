@@ -1,0 +1,70 @@
+﻿@using WebSiteBanSach.Models
+@model List<Sach>
+@{
+    ViewBag.Title = "SachTheoChuDe";
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+}
+<link href="~/Content/TrangChuCss.css" rel="stylesheet" />
+
+<hr />
+
+
+<hr />
+<div style="clear:both"></div>
+<div id="divBody" style="width:100%; margin-left:120px;">
+    <h2 style="margin-left:2%; font-weight:normal; color:black;">Danh mục chủ đề</h2>
+    @*Hien thi danh muc chủ đề*@
+    @*
+        <div style="float:left; width:30%;">
+            @foreach (var item in (List<ChuDe>)ViewBag.lstChuDe)
+            {
+                <a id="btnChuDe" style="width:250px; font-size: 11pt; color: aliceblue; text-decoration:none;">@item.TenChuDe</a>
+                <br />
+            }
+        </div>
+    *@
+
+    @*Hiển thị danh sách theo chủ đề*@
+
+    @if (Model.Count == 0)
+    {
+        <h1>@ViewBag.Sach</h1>
+    }
+
+
+    @{ int i = 0;
+
+        <div style="float:left; width:100%;">
+            @foreach (var item in Model)
+            {
+                i++;
+                <div id="SanPham" style="float:left; width:23%;margin-left:3%;">
+                    <div id="AnhBia"><img src="@Url.Content("~/HinhAnhSach/"+item.AnhBia)" width="100" height="150" /></div>
+                    <div id="ThongTin" style="width:60%;">
+                        @if (item.TenSach.Length < 35)
+                        {
+                            <div id="TenSach" title="@item.TenSach">@item.TenSach</div>
+                        }
+                        else
+                        {
+                            <div id="TenSach" title="@item.TenSach">@item.TenSach.Substring(0, 35) ...</div>
+                        }
+
+                        <div id="DonGia" style="color:orange;"><font color="Green">Gía:</font>@item.GiaBan</div>
+                    </div>
+                </div>
+                if (i % 3 == 0)
+                {
+                    <div style="clear:both"></div>
+                }
+            }
+        </div>
+    }
+</div>
+<div style="clear:both"></div>
+<style>
+    #divChuDeVaNXB {
+        display: none;
+    }
+    
+</style>

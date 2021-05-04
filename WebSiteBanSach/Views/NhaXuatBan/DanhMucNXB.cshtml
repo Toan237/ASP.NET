@@ -1,0 +1,21 @@
+﻿@using WebSiteBanSach.Models;
+@model List<NhaXuatBan>
+@{
+    ViewBag.Title = "DanhMucNXB";
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+}
+@*Hiển thị danh mục nhà xuất bản*@
+<div class="NXB">
+    @foreach (var item in Model)
+    {
+        <a id="btnNXB" style="width:250px; font-size:11pt; color:aliceblue; background-color:#3855bd" href="@Url.Action("SachTheoNXB",new { @MaNXB=item.MaNXB})"
+           class="button">@item.TenNXB</a>
+        <br />
+        <br />
+    }
+</div>
+<style>
+    .NXB{
+        margin-left:160px;
+    }
+</style>

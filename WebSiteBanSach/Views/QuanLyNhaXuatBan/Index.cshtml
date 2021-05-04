@@ -1,0 +1,52 @@
+﻿@model IEnumerable<WebSiteBanSach.Models.NhaXuatBan>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Layout/AdminLayout.cshtml";
+}
+
+<h2>Quản lý nhà xuất bản</h2>
+
+<p>
+    @Html.ActionLink("Thêm mới nhà xuất bản", "ThemMoi")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MaNXB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TenNXB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DiaChi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DienThoai)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaNXB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenNXB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiaChi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DienThoai)
+        </td>
+        <td>
+            @Html.ActionLink("Chỉnh sửa", "ChinhSua", new { @MaNXB=item.MaNXB }) |
+            @Html.ActionLink("Hiển thị", "HienThi", new { @MaNXB = item.MaNXB }) |
+            @Html.ActionLink("Xóa", "Xoa", new { @MaNXB = item.MaNXB })
+        </td>
+    </tr>
+}
+
+</table>

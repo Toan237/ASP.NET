@@ -1,0 +1,40 @@
+﻿@model IEnumerable<WebSiteBanSach.Models.ChuDe>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Layout/AdminLayout.cshtml";
+}
+
+<h2>Quản lý chủ đề</h2>
+
+<p>
+    @Html.ActionLink("Thêm chủ đề mới", "ThemMoi")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MaChuDe)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TenChuDe)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaChuDe)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenChuDe)
+        </td>
+        <td>
+            @Html.ActionLink("Chỉnh sửa", "ChinhSua", new { @MaChuDe=item.MaChuDe }) |
+            @Html.ActionLink("Hiển thị", "HienThi", new { @MaChuDe = item.MaChuDe }) |
+            @Html.ActionLink("Xóa", "Xoa", new { @MaChuDe = item.MaChuDe })
+        </td>
+    </tr>
+}
+
+</table>

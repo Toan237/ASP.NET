@@ -1,0 +1,11 @@
+giao diện: 
+sách theo chủ đề
+sách theo nhà xuất bản
+chi tiết sách
+đặt hàng: chỉ đặt được 1 lần 1 tài khoản, chưa chỉnh database
+tài khoản người dùng: đăng nhập mới mua hàng được
+tìm kiểm: nếu không tìm thấy sẽ trả về tất cả các cuốn sách có trong database
+
+dashboard:
+thêm sửa xóa: sách, chủ đề, nhà xuất bản
+không có làm đăng nhập dashboard

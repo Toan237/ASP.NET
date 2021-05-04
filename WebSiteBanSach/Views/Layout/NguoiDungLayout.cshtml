@@ -1,0 +1,166 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    @*link css teamplate*@
+    <link href="~/Content/NguoiDungCssLayout/fonts.css" rel="stylesheet" />
+    <link href="~/Content/NguoiDungCssLayout/screen.css" rel="stylesheet" />
+    @*link thiet ke*@
+    <link href="~/Content/NguoiDungCssLayout/NguoiDungCssLayout.css" rel="stylesheet" />
+    @*font awesome*@
+    <link href="~/Content/fontawesome/css/all.css" rel="stylesheet" />
+    @*js*@
+    <script src="~/Content/fontawesome/js/all.js"></script>
+    @*Nivo slider*@
+
+    <link href="~/NivoSlider/nivo-slider.css" rel="stylesheet" />
+    <script src="~/NivoSlider/jquery-1.7.1.min.js"></script>
+    <script src="~/NivoSlider/jquery.nivo.slider.js"></script>
+    <script src="~/NivoSlider/jquery.nivo.slider.pack.js"></script>
+
+</head>
+<body>
+    
+
+
+    <section class="blank">
+        @*Taọ div đăng ký đăng nhập*@
+        <div class="flash">
+
+            <div class="DangKyDangNhap">
+                @Html.Action("GioHangPartial", "GioHang")
+
+                @if (Session["TaiKhoan"] != null)
+                {
+                    <i class="fas fa-user-alt"></i>
+                    <a href="@Url.Action("DangXuat","NguoiDung")">Đăng xuất</a>
+                }
+                else
+                {
+                    <i class="fas fa-sign-in-alt"></i>
+                    <a href="@Url.Action("DangKy","NguoiDung")">Đăng ký</a>
+                    @*@Html.ActionLink("Đăng ký", "DangKy", null, htmlAttributes: new { @class = "DangKy" })*@
+
+                    <i class="fa fa-unlock" aria-hidden="true"></i>
+                    <a href="@Url.Action("DangNhap","NguoiDung")">Đăng nhập</a>
+                    @* @Html.ActionLink("Đăng nhập", "DangNhap", null, htmlAttributes: new { @class = "DangNhap" })*@
+
+                }
+
+            </div>
+        </div>
+
+
+        <div class="flash success" id="divDanhMuc">
+            <div id="txtTimKiem">
+
+                @using (Html.BeginForm("KetQuaTimKiem","TimKiem", FormMethod.Post))
+                {
+                    @Html.TextBox("txtTimKiem", "", htmlAttributes: new { @class = "TextBoxTimKiem", @placeholder = "Nhập vào từ khóa cần tìm" })
+                    
+                <div id="divHinhAnhTimKiem">
+                    <button type="submit" style="margin-top:0px;" ><img src="~/HinhAnh/search.png"/></button>
+                    @*<i class="fas fa-search"></i>*@
+                </div>
+
+                }
+
+            </div>
+
+            <ul class="navMenu">
+                <li>
+                    <a href="@Url.Action("Index","Home")">Trang chủ</a>
+                </li>
+                <li>
+                    <a href="#">Giới thiệu</a>
+                </li>
+                <li>
+                    <a href="#">Liên hệ</a>
+                </li>
+                <li>
+                    <a href="#">Hướng dẫn</a>
+                </li>
+                <li>
+                    <a href="#">Sách</a>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="divMenuSlider">
+        
+        <div id="divMenuLeft">
+            <div class="activity">
+                @Html.Action("SachMoiPartial","Sach")
+                
+            </div>
+        </div>
+        @*chen nivo*@
+                <div id="slider" class="nivoSlider"> 
+                    <img src="~/HinhAnh/toystory.jpg"  />
+                    <img src="~/HinhAnh/up.jpg"  />
+                    <img src="~/HinhAnh/walle.jpg"  /> 
+                    <img src="~/HinhAnh/nemo.jpg"   /> 
+                </div>
+            <div style="clear:both"></div>
+        
+    </section>
+    <div id="NoiDung">
+        @RenderBody()
+    </div>
+    <section>
+        @*Phần chủ đề*@
+        <div>
+            @*<a href="#" class="button">Khoa học</a>
+
+        <a href="#" class="button button-submit">Công nghệ thông tin</a>
+
+        <a href="#" class="button">Tình yêu <span class="notification">22</span></a>
+
+        <a href="#" class="button button-submit">Xã hội</a>
+
+        <a href="#" class="button">Nhân văn <span class="notification">22</span></a>
+            *@
+            @Html.Action("ChuDePartial","ChuDe")
+
+        </div>
+
+       <br />
+    </section>
+    <div style="clear:both"></div>
+    @*Nha xuất bản*@
+    <section class="blank items">
+        <div id="divLeft">
+            <div class="item">
+                <div class="item-info">
+                    @*Action partialview*@
+                    @Html.Action("NhaXuatBanPartial","NhaXuatBan")
+                    
+                </div>
+            </div>
+        </div>
+        <div id="divRight">
+            @RenderSection("NoiDungBenPhai",false)
+        </div>
+        <div style="clear:both"></div>
+        <a href="#" class="button button-buy">Một cuốn sách dù dở đến đâu ta cũng thu lượm được vài điều đặc biệt của nó.</a>
+    </section>
+
+    
+</body>
+</html>
+<script type="text/javascript">
+    $(window).load(function () {
+        $('#slider').nivoSlider({
+            controlNav: false,
+            nextText: '',
+            prevText: ''
+        });
+    });
+</script>
