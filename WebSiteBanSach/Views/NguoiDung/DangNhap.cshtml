@@ -1,27 +1,75 @@
 ﻿
 @{
     ViewBag.Title = "DangNhap";
-    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+    Layout = null;
 }
-<div class="TaiKhoan">
-    <h2>DangNhap</h2>
-    <h1>@ViewBag.ThongBao</h1>
+
+@*<div class="TaiKhoan">
+        <h2>DangNhap</h2>
+        <h1>@ViewBag.ThongBao</h1>
+        @using (Html.BeginForm())
+        {
+
+            <span>Tài khoản: </span><br />
+            @Html.TextBox("txtTaiKhoan");
+            <br />
+            <span>Mật khẩu: </span><br />
+            <input name="txtMatKhau" type="text" />
+            <br />
+            <button type="submit" id="btnSubmit">Đăng nhập</button>
+
+        }
+    </div>
+    <br />
+    <style>
+        .TaiKhoan {
+            margin-left:185px;
+        }
+    </style>
+*@
+
+<head>
+    <link rel="stylesheet" type="text/css" href="~/Content/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/fontawesome/css/all.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/NguoiDungCssLayout/login.css"/>
+</head>
+<body>
+<div class="main">
     @using (Html.BeginForm())
     {
-
-        <span>Tài khoản: </span><br />
-        @Html.TextBox("txtTaiKhoan");
-        <br />
-        <span>Mật khẩu: </span><br />
-        <input name="txtMatKhau" type="text" />
-        <br />
-        <input type="submit" id="btnSubmit" name="btnSubmit" />
-
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6" id="loginScreen">
+                <img src="~/HinhAnh/login.png" />
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6" id="loginForm">
+                <div class="margin-5">
+                    <h3>Đăng nhập</h3>
+                    <p>Chưa có tài khoản <a href=@Url.Action("DangKy","NguoiDung")>Đăng ký tại đây</a></p>
+                    <div class="group">
+                        <p>Tài khoản</p>
+                        <div class="inputGroup">
+                            <div class="icon">
+                                <i class="far fa-envelope"></i>
+                            </div>
+                            <input type="email" name="txtTaiKhoan" placeholder="Tài khoản của bạn" required />
+                        </div>
+                    </div>
+                    <div class="group">
+                        <p>Mật khẩu</p>
+                        <div class="inputGroup">
+                            <div class="icon">
+                                <i class="fas fa-unlock-alt"></i>
+                            </div>
+                            <input type="password" name="txtMatKhoan" placeholder="Mật khẩu của bạn" required />
+                        </div>
+                    </div>
+                    <button class="btn" type="submit">Đăng nhập</button>
+                </div>
+            </div>
+        </div>
     }
 </div>
-<br />
-<style>
-    .TaiKhoan {
-        margin-left:185px;
-    }
-</style>
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script src="~/Scripts/bootstrap.js"></script>
+<script src="~/Content/fontawesome/js/all.js"></script>
+</body>

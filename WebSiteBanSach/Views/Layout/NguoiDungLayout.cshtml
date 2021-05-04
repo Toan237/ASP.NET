@@ -34,12 +34,12 @@
         <div class="flash">
 
             <div class="DangKyDangNhap">
-                @Html.Action("GioHangPartial", "GioHang")
-
                 @if (Session["TaiKhoan"] != null)
                 {
+                    @Html.Action("GioHangPartial", "GioHang")
                     <i class="fas fa-user-alt"></i>
                     <a href="@Url.Action("DangXuat","NguoiDung")">Đăng xuất</a>
+
                 }
                 else
                 {
@@ -62,11 +62,15 @@
 
                 @using (Html.BeginForm("KetQuaTimKiem","TimKiem", FormMethod.Post))
                 {
+                <div class="search">
                     @Html.TextBox("txtTimKiem", "", htmlAttributes: new { @class = "TextBoxTimKiem", @placeholder = "Nhập vào từ khóa cần tìm" })
-                    
-                <div id="divHinhAnhTimKiem">
-                    <button type="submit" style="margin-top:0px;" ><img src="~/HinhAnh/search.png"/></button>
-                    @*<i class="fas fa-search"></i>*@
+                    <div id="divHinhAnhTimKiem">
+                        <button type="submit" style="margin-top:0px;">
+                        @*<img src="~/HinhAnh/search.png" />*@
+                            <div class="icon"></div>
+                        </button>
+                        @*<i class="fas fa-search"></i>*@
+                    </div>
                 </div>
 
                 }
@@ -107,6 +111,12 @@
                     <img src="~/HinhAnh/up.jpg"  />
                     <img src="~/HinhAnh/walle.jpg"  /> 
                     <img src="~/HinhAnh/nemo.jpg"   /> 
+                    <img src="~/HinhAnh/slide.png"/>
+                    <img src="~/HinhAnh/slide1.jpg"/>
+                    <img src="~/HinhAnh/slide2.jpg"/>
+                    <img src="~/HinhAnh/slide3.jpg"/>
+                    <img src="~/HinhAnh/slide4.jpg"/>
+                    <img src="~/HinhAnh/slide5.jpg"/>
                 </div>
             <div style="clear:both"></div>
         
@@ -160,7 +170,10 @@
         $('#slider').nivoSlider({
             controlNav: false,
             nextText: '',
-            prevText: ''
+            prevText: '',
+            effect: 'random',
+            animSpeed: 400,
+            pauseTime: 2000
         });
     });
 </script>

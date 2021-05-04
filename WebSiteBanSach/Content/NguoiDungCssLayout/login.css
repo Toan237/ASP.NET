@@ -1,0 +1,83 @@
+﻿body {
+    background-color:#4dc5bf;
+}
+.main img {
+    width: 100%;
+    max-height: 560px;
+    
+    border-top-left-radius:10px;
+    border-bottom-left-radius:10px;
+    
+}
+
+.main form > .row {
+    margin-top: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: -4px -4px 5px 0px #47a9b3, 4px 4px 5px 0px #47a9b3;
+}
+#loginScreen{
+    padding:unset;
+}
+#loginForm{
+    margin-top:10%
+}
+.margin-5 {
+    margin-left: 5%;
+    color: #4dc5bf;
+}
+.margin-5 > h3{
+    font-size:46px;
+}
+.margin-5 > p{
+    font-size:14px;
+}
+.group > p {
+    font-size: 18px;
+    margin-top: 10px;
+}
+.group .row{
+    font-size:20px;
+}
+.icon {
+    font-size: x-large;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+.inputGroup {
+    display: inline-flex;
+    width: 90%;
+    align-items: center;
+    border-width: 2px;
+    border-style: double;
+    border-color: rgb(222,215,215);
+    border-radius: 4px;
+    transition: 500ms all;
+}
+.inputGroup:hover, .inputGroup:focus {
+        border-color: #4dc5bf
+ }
+
+.inputGroup input {
+  font-size: x-large;
+  width:100%;
+  outline:none;
+  border:none;
+}
+    .inputGroup input::placeholder {
+        font-size: 16px;
+        color: #4dc5bf;
+    }
+.margin-5 button{
+   margin-top : 20px;
+   width:90%;
+   font-size: x-large;
+   transition: 500ms all;
+}
+    .margin-5 button:hover, .margin-5 button:focus {
+        background-color: #4dc5bf;
+        color: white;
+    }
+

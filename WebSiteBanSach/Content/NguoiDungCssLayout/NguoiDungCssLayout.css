@@ -42,18 +42,13 @@
 }
 #txtTimKiem input{
     height:0;
+    margin-right:5px;
+    border-radius:10px;
 }
 #divHinhAnhTimKiem button {
-    /*float:left;
-    margin-right: -90px;
-    padding: 0 10px 0 10px;
+    max-height: 32px;
+    padding: 10px;
     background-color: #14a19a;
-    font-size:15px;*/
-}
-
-
-#divHinhAnhTimKiem button:hover {
-    background-color: rgba(0,0,0,.5);
 }
 #divHinhAnhTimKiem img{
     width:30px;
@@ -66,8 +61,8 @@
     height:360px;
 }
 #slider img {
-    width:800px;
-    height:360px;
+    width:800px !important;
+    height:360px !important;
 }
 #divMenuLeft{
     float:left;
@@ -82,4 +77,35 @@
 #divRight{
     width:70%;
     float:right;
+}
+.search{
+    display: inline-flex;
+}
+#divHinhAnhTimKiem button:hover{
+    border-radius:10px;
+    background-color:#fff;
+    transition: 500ms all;
+}
+#divHinhAnhTimKiem button:hover .icon{
+    background-image: url(../../HinhAnh/search_hover.svg);
+}
+#divHinhAnhTimKiem .icon {
+    height: 18px;
+    width: 18px;
+    background-size: cover;
+    background-image: url(../../HinhAnh/search.svg);
+    transition: 500ms all;
+    background-position: center;
+    /* margin-top: 0%; */
+    margin-bottom: 60% !important;
+    /* margin-bottom: 20%; */
+}
+div#divHinhAnhTimKiem {
+    max-height: 32px;
+}
+.DangKyDangNhap a{
+    margin-right:5px;
+}
+.DangKyDangNhap a:hover {
+     color: #14a19a
 }
