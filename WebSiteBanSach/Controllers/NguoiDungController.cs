@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -18,18 +19,22 @@ namespace WebSiteBanSach.Controllers
         [HttpGet]
         public ActionResult DangKy()
         {
+            
             return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult DangKy(KhachHang kh)
         {
-            if(ModelState.IsValid)
-            { 
-            db.KhachHangs.Add(kh);
-            db.SaveChanges();
+            
+            if (ModelState.IsValid)
+            {
+                Debug.WriteLine(kh.Email);
+                Debug.WriteLine(kh.HoTen);
+                db.KhachHangs.Add(kh);
+                db.SaveChanges();
             }
-            return View();
+            return RedirectToAction("Index", "Home");
         }
         [HttpGet]
         public ActionResult DangNhap()
@@ -39,7 +44,8 @@ namespace WebSiteBanSach.Controllers
         [HttpPost]
         public ActionResult DangNhap(FormCollection f)
         {
-            string sTaiKhoan = f["txtTaiKhoan"].ToString();
+            Debug.WriteLine("OK");
+            string sTaiKhoan = f.Get("txtTaiKhoan").ToString();
             string sMatKhau = f.Get("txtMatKhau").ToString();
             KhachHang kh = db.KhachHangs.SingleOrDefault(n => n.TaiKhoan == sTaiKhoan && n.MatKhau == sMatKhau);
             if(kh != null)

@@ -1,11 +1,12 @@
 ﻿@model WebSiteBanSach.Models.KhachHang
+@using WebSiteBanSach.Controllers
 
 @{
     ViewBag.Title = "DangKy";
-    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+    Layout = null;
 }
 
-<div style="margin-left:300px">
+@*<div style="margin-left:300px">
     <h2>DangKy</h2>
 
     @using (Html.BeginForm())
@@ -15,7 +16,7 @@
     <div class="form-horizontal">
         <h4>KhachHang</h4>
         <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })*@
         @*
         <div class="form-group">
             @Html.LabelFor(model => model.MaKH, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -26,17 +27,16 @@
         </div>
         *@
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.HoTen, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.HoTen, new { htmlAttributes = new { @class = "form-control" } })
+        @*<div class="form-group">*@
+            @*@Html.LabelFor(model => model.HoTen, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <!--<div class="col-md-10">-->
+                @*@Html.EditorFor(model => model.HoTen, new { htmlAttributes = new { @class = "form-control" } })
                 <span id="loiHoTen"></span>
-                @Html.ValidationMessageFor(model => model.HoTen, "", new { @class = "text-danger" })
-            </div>
+                @Html.ValidationMessageFor(model => model.HoTen, "", new { @class = "text-danger" })*@
+            <!--</div>
         </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.TaiKhoan, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="form-group">-->
+            @*@Html.LabelFor(model => model.TaiKhoan, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.TaiKhoan, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.TaiKhoan, "", new { @class = "text-danger" })
@@ -104,4 +104,87 @@
             return true;
         }
     })*/
-</script>
+</script>*@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="~/Content/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/fontawesome/css/all.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/NguoiDungCssLayout/login.css" />
+</head>
+<body>
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Content/fontawesome/js/all.js"></script>
+    <div class="main">
+        @using (Html.BeginForm(controllerName:"NguoiDung",actionName:"DangKy",method: FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6" id="registerScreen">
+                <img src="~/HinhAnh/register.jpg" />
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="margin-5">
+                    <h3>Đăng ký</h3>
+                    <p>Đã có tài khoản <a href=@Url.Action("DangNhap","NguoiDung")>Đăng nhập tại đây</a></p>
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="group">
+                        <p>Họ tên</p>
+                        <div class="inputGroup">
+                            <div class="icon">
+                                <i class="far fa-user"></i>
+                            </div>
+                            @Html.EditorFor(model => model.HoTen, new { htmlAttributes = new { @placeholder = "Tên khách hàng", @type = "text" } })
+                            @Html.ValidationMessageFor(model => model.HoTen, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="group">
+                        <p>Tài khoản</p>
+                        <div class="inputGroup">
+                            <div class="icon">
+                                <i class="fas fa-signature"></i>
+                            </div>
+                            @Html.EditorFor(model => model.TaiKhoan, new { htmlAttributes = new { @placeholder = "Tên tài khoản đăng nhập", @type = "text" } })
+                            @Html.ValidationMessageFor(model => model.TaiKhoan, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="group">
+                        <p>Mật khẩu</p>
+                        <div class="inputGroup">
+                            <div class="icon">
+                                <i class="fas fa-key"></i>
+                            </div>
+                            @Html.EditorFor(model => model.MatKhau, new { htmlAttributes = new { @placeholder = "Mật khẩu", @type = "password" } })
+                            @Html.ValidationMessageFor(model => model.MatKhau, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="group">
+                        <p>Email</p>
+                        <div class="inputGroup">
+                            <div class="icon">
+                                <i class="fas fa-at"></i>
+                            </div>
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @placeholder = "Email khách hàng", @type = "email" } })
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <button class="btn" id="btnSubmit" type="submit">Đăng ký</button>
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+    <style>
+        .main form  > .row{
+            margin-top: 2% !important ;
+        }
+        button{
+            margin-bottom:10px;
+        }
+        .main img{
+            height:92%;
+            max-height:none;
+        }
+    </style>
+</body>
+</html>
