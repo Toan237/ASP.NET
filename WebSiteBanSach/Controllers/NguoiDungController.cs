@@ -51,7 +51,7 @@ namespace WebSiteBanSach.Controllers
             if(kh != null)
             {
                 //ViewBag.ThongBao = "Chúc mừng bạn đăng nhập thành công !";
-                Session["TaiKhoan"] = kh;
+                Session["TaiKhoan"] = kh.MaKh;
                 
                 return RedirectToAction("Index", "Home"); ;
             }

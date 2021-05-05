@@ -166,9 +166,9 @@ namespace WebSiteBanSach.Controllers
             }
             //them don hang
             DonHang dh = new DonHang();
-            KhachHang kh = (KhachHang)Session["TaiKhoan"];
+            
             List<GioHang> gh = LayGioHang();
-            dh.MaKH = kh.MaKh;
+            dh.MaKH = Convert.ToInt32(Session["TaiKhoan"]);
             dh.NgayDat = DateTime.Now;
             db.DonHangs.Add(dh);
             //Them chi tiet don hang
@@ -184,8 +184,33 @@ namespace WebSiteBanSach.Controllers
             }
             db.SaveChanges();
             Session.Remove("GioHang");
-            return RedirectToAction("Index","Home");
+            return RedirectToAction("ChiTietDonHang","GioHang");
         }
+        
+        public ActionResult ChiTietDonHang()
+        {
+            int maKH = Convert.ToInt32(Session["TaiKhoan"]);
+            //var list = db.DonHangs.Join(db.ChiTietDonHangs, d => d.MaDonHang, c => c.MaDonHang,
+            //(d, c) => new { d, c }
+            //).Where(res => res.d.MaKH == maKH)
+            //.Select(x => new
+            //{
+            //    NgayDat = x.d.NgayDat,
+            //    SoLuong = x.c.SoLuong,
+            //    MaSach = x.c.MaSach,
+            //    DonGia = x.c.DonGia
+
+            //}).ToList(); 
+            var list = (from d in db.DonHangs join c in db.ChiTietDonHangs on d.MaDonHang equals c.MaDonHang 
+                        join s in db.Saches on c.MaSach equals s.MaSach where d.MaKH == maKH 
+                        select new { NgayDat = d.NgayDat, SoLuong = c.SoLuong, MaSach = c.MaSach, DonGia = c.DonGia,
+                        AnhBia = s.AnhBia, TenSach = s.TenSach
+                        }
+                        ).ToList();
+            return View(list);
+        }
+
         #endregion
+
     }
 }

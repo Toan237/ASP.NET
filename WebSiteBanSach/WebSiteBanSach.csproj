@@ -2260,6 +2260,7 @@
     <Content Include="Views\QuanLyNhaXuatBan\ChinhSua.cshtml" />
     <Content Include="Views\QuanLyNhaXuatBan\HienThi.cshtml" />
     <Content Include="Views\QuanLyNhaXuatBan\Xoa.cshtml" />
+    <Content Include="Views\GioHang\ChiTietDonHang.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

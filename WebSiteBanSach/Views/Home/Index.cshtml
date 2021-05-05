@@ -28,7 +28,7 @@
                         <div id="TenSach" title="@item.TenSach">@item.TenSach.Substring(0, 35) ...</div>
                     }
 
-                    <div id="DonGia" style="color:orange;"><font color="Green">Gía:</font>@item.GiaBan</div>
+                    <div id="DonGia" style="color:orange;"><font color="Green">Giá</font>@item.GiaBan</div>
                 </div>
                 <div id="GioHang">
                     @using (Html.BeginForm("ThemGioHang", "GioHang", new { @iMaSach = item.MaSach, @strURL = Request.Url.ToString() }))
