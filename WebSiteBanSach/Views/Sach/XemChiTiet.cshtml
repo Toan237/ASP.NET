@@ -22,7 +22,7 @@
     <div id="HinhAnh">
         <img src="@Url.Content("~/HinhAnhSach/"+Model.AnhBia)" />
     </div>
-    <div id="ThongTin">
+    <div id="ThongTin" class="left">
         <div class="margin-b" id="TenSach"></div>
         <div class="margin-b" id="ChuDe">Chủ đề: @ViewBag.TenChuDe</div>
         <div class="margin-b" id="NhaXuatBan">Nhà xuất bản: @ViewBag.NhaXuatBan</div>
@@ -50,7 +50,12 @@
     #TenSach{
         word-wrap:break-word;
     }
+    .left{
+        text-align:left !important;
+    }
     
-
+    .item{
+        width: 28%!important;
+    }
    
 </style>
