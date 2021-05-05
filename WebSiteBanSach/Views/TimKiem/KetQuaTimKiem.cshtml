@@ -11,38 +11,42 @@
 <h2 style="margin-left:12%; font-weight:normal;color:black;">Kết quả tìm kiếm</h2>
 <div style="margin-left:12%;">@ViewBag.ThongBao</div>
 <hr />
-<div id="divBody" style="background-color:white;">
-    @{ int i = 0;}
-    @foreach (var item in Model)
-    {
-        i++;
-        <div id="SanPham">
-            <a href="@Url.Action("XemChiTiet","Sach", new { @MaSach=item.MaSach})"><div id="AnhBia"><img src="@Url.Content("~/HinhAnhSach/"+item.AnhBia)" width="100" height="150" /></div></a>
-            <div id="ThongTin">
-                @if (item.TenSach.Length < 35)
-                {
-                    <div id="TenSach" title="@item.TenSach">@item.TenSach</div>
-                }
-                else
-                {
-                    <div id="TenSach" title="@item.TenSach">@item.TenSach.Substring(0, 35) ...</div>
-                }
+<div class="container">
 
-                <div id="DonGia" style="color:orange;"><font color="Green">Gía:</font>@item.GiaBan</div>
-            </div>
-            <div id="GioHang">
-                @using (Html.BeginForm("ThemGioHang", "GioHang", new { @iMaSach = item.MaSach, @strURL = Request.Url.ToString() }))
-                {
-                    <input type="submit" value="Mua hàng" id="btnGioHang" class="btn btn-primary" />
-                }
-            </div>
-        </div>
-        if (i % 3 == 0)
+    <div class="grid" style="background-color:white;">
+        @{ int i = 0;}
+        @foreach (var item in Model)
         {
-            <div style="clear:both"></div>
+            i++;
+            <div id="SanPham" class="grid-3 ">
+                <a href="@Url.Action("XemChiTiet","Sach", new { @MaSach=item.MaSach})"><div id="AnhBia"><img src="@Url.Content("~/HinhAnhSach/"+item.AnhBia)" width="100" height="150" /></div></a>
+                <div id="ThongTin">
+                    @if (item.TenSach.Length < 35)
+                    {
+                        <div id="TenSach" title="@item.TenSach">@item.TenSach</div>
+                    }
+                    else
+                    {
+                        <div id="TenSach" title="@item.TenSach">@item.TenSach.Substring(0, 35) ...</div>
+                    }
+
+                    <div id="DonGia" style="color:orange;"><font color="Green">Gía:</font>@item.GiaBan</div>
+                </div>
+                <div id="GioHang">
+                    @using (Html.BeginForm("ThemGioHang", "GioHang", new { @iMaSach = item.MaSach, @strURL = Request.Url.ToString() }))
+                    {
+                        <input type="submit" value="Mua hàng" id="btnGioHang" class="btn btn-primary" />
+                    }
+                </div>
+            </div>
+            if (i % 3 == 0)
+            {
+                <div style="clear:both"></div>
+            }
         }
-    }
+    </div>
 </div>
+
 <div style="clear:both"></div>
 @*Tao lien ket trang*@
 <div class="Trang">
@@ -55,11 +59,9 @@
 <br />
 <style>
     div#SanPham {
-        float: left;
-        width: 250px;
-        margin-left: 12%;
-        margin-top: 10px;
+        padding: 30px 20px;
     }
+
     .Trang {
         margin-left: 170px;
         margin-top: 10px;

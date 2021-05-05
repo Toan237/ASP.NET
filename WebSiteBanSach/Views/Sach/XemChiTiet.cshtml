@@ -15,31 +15,34 @@
         
     }
 </style>
-@section NoiDungBenPhai {
 
     @*Thông tin sách*@
-<div class="detail">
-    <div id="HinhAnh">
-        <img src="@Url.Content("~/HinhAnhSach/"+Model.AnhBia)" />
-    </div>
-    <div id="ThongTin" class="left">
-        <div class="margin-b" id="TenSach"></div>
-        <div class="margin-b" id="ChuDe">Chủ đề: @ViewBag.TenChuDe</div>
-        <div class="margin-b" id="NhaXuatBan">Nhà xuất bản: @ViewBag.NhaXuatBan</div>
-        <div class="margin-b" id="Mota">Nội dung tóm tắt:  @Html.Raw(Model.MoTa)</div>
-        <div class="margin-b" id="Gia"><span style="color: #5fc1bd;font-weight: normal;">Đơn giá:</span><br /><span id="Gia">@string.Format("{0:0,0}", Model.GiaBan) VNĐ</span></div>
-        <br />
-        @using (Html.BeginForm("ThemGioHang", "GioHang", new { @iMaSach = Model.MaSach, @strURL = Request.Url.ToString() }))
-        {
-            <input type="submit" value="Mua hàng" id="btnGioHang" class="btn btn-primary" />
-        }
+<div class="container">
+    <div class="detail ">
+        <div id="HinhAnh">
+            <img src="@Url.Content("~/HinhAnhSach/"+Model.AnhBia)" />
+        </div>
+        <div id="ThongTin" class="left">
+            <div class="margin-b" id="TenSach"></div>
+            <div class="margin-b" id="ChuDe">Chủ đề: @ViewBag.TenChuDe</div>
+            <div class="margin-b" id="NhaXuatBan">Nhà xuất bản: @ViewBag.NhaXuatBan</div>
+            <div class="margin-b" id="Mota">Nội dung tóm tắt:  @Html.Raw(Model.MoTa)</div>
+            <div class="margin-b" id="Gia"><span style="color: #5fc1bd;font-weight: normal;">Đơn giá:</span><br /><span id="Gia">@string.Format("{0:0,0}", Model.GiaBan) VNĐ</span></div>
+            <br />
+            @using (Html.BeginForm("ThemGioHang", "GioHang", new { @iMaSach = Model.MaSach, @strURL = Request.Url.ToString() }))
+            {
+                <input type="submit" value="Mua hàng" id="btnGioHang" class="btn btn-primary" />
+            }
 
+        </div>
     </div>
+
 </div>
     <div style="clear:both"></div>
 }
 @*<div>Mã sách: @Model.MaSach</div>*@
 <style>
+
 
     #ThongTin { 
         width: 600px;

@@ -180,9 +180,10 @@ namespace WebSiteBanSach.Controllers
                 ctDH.MaSach = item.iMaSach;
                 ctDH.SoLuong = item.iSoLuong;
                 ctDH.DonGia = item.dDonGia.ToString();
-                //db.ChiTietDonHangs.Add(ctDH);
+                db.ChiTietDonHangs.Add(ctDH);
             }
             db.SaveChanges();
+            Session.Remove("GioHang");
             return RedirectToAction("Index","Home");
         }
         #endregion

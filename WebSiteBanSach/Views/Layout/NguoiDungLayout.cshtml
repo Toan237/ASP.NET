@@ -23,7 +23,13 @@
     <script src="~/NivoSlider/jquery-1.7.1.min.js"></script>
     <script src="~/NivoSlider/jquery.nivo.slider.js"></script>
     <script src="~/NivoSlider/jquery.nivo.slider.pack.js"></script>
-
+    
+    <style>
+        .container{
+            background: transparent;
+            padding: 0;
+        }
+    </style>
 </head>
 <body>
     
@@ -63,7 +69,7 @@
                 @using (Html.BeginForm("KetQuaTimKiem","TimKiem", FormMethod.Post))
                 {
                 <div class="search">
-                    @Html.TextBox("txtTimKiem", "", htmlAttributes: new { @class = "TextBoxTimKiem", @placeholder = "Nhập vào từ khóa cần tìm" })
+                    @Html.TextBox("txtTimKiem", "", htmlAttributes: new { @class = "TextBoxTimKiem", @placeholder = "Nhập từ khóa" })
                     <div id="divHinhAnhTimKiem">
                         <button type="submit" style="margin-top:0px;">
                         @*<img src="~/HinhAnh/search.png" />*@
@@ -121,56 +127,30 @@
             <div style="clear:both"></div>
         
     </section>
-    <div id="NoiDung">
+    <div class="container">
         @RenderBody()
     </div>
-    <section>
-        @*Phần chủ đề*@
-        <div>
-            @*<a href="#" class="button">Khoa học</a>
+   
 
-        <a href="#" class="button button-submit">Công nghệ thông tin</a>
 
-        <a href="#" class="button">Tình yêu <span class="notification">22</span></a>
 
-        <a href="#" class="button button-submit">Xã hội</a>
-
-        <a href="#" class="button">Nhân văn <span class="notification">22</span></a>
-            *@
-            @Html.Action("ChuDePartial","ChuDe")
-
-        </div>
-
-       <br />
-    </section>
-    <div style="clear:both"></div>
-    @*Nha xuất bản*@
-    <section class="blank items">
-        <div class="flex">
-            <div class="item">
-                <div class="item-info">
-                    @Html.Action("NhaXuatBanPartial", "NhaXuatBan")
+    @*Footer*@
+    <footer>
+        <div class="container">
+            <div class="grid">
+                <div class="grid-4">
+                    ICON HERE
+                    <h3 class="storename">Wibu Book</h3>
+                    </div>
+                    <div class="grid-4">
+                        @Html.Action("ChuDePartial", "ChuDe")
+                    </div>
+                    <div class="grid-4">
+                        @Html.Action("NhaXuatBanPartial", "NhaXuatBan")-
+                    </div>
                 </div>
-            </div>
-            <div class="rightSide">
-                @RenderSection("NoiDungBenPhai", false)
-            </div>
-        </div>
-        <!--<div id="divLeft">
-            <div class="item">
-                <div class="item-info">-->
-                    @*Action partialview*@
-                    @*@Html.Action("NhaXuatBanPartial","NhaXuatBan")*@
-                    
-                <!--</div>
-            </div>
-        </div>
-        <div id="divRight"> -->
-            @*@RenderSection("NoiDungBenPhai",false)*@
-        @*</div>
-        <div style="clear:both"></div>
-        <a href="#" class="button button-buy">Một cuốn sách dù dở đến đâu ta cũng thu lượm được vài điều đặc biệt của nó.</a>*@
-    </section>
+            </div>  
+    </footer>
 
     
 </body>

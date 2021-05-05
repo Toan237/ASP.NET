@@ -21,6 +21,7 @@ namespace WebSiteBanSach.Models
         }
     
         public int MaDonHang { get; set; }
+        public string HoTen { get; set; }
         public Nullable<int> DaThanhToan { get; set; }
         public Nullable<int> TinhTrangGiaoHang { get; set; }
         public Nullable<System.DateTime> NgayDat { get; set; }

@@ -22,6 +22,7 @@
       <PropertyRef Name="MaDonHang" />
     </Key>
     <Property Name="MaDonHang" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HoTen" Type="nvarchar" MaxLength="50" />
     <Property Name="DaThanhToan" Type="int" />
     <Property Name="TinhTrangGiaoHang" Type="int" />
     <Property Name="NgayDat" Type="datetime" />

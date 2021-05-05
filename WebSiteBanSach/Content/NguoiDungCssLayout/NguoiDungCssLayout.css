@@ -1,4 +1,9 @@
-﻿div#ToanTrang {
+﻿@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+
+html {
+    font-family: 'Open Sans', sans-serif;
+}
+div#ToanTrang {
     position:relative;
 }
 .DangKyDangNhap{
@@ -44,6 +49,7 @@
     height:0;
     margin-right:5px;
     border-radius:10px;
+    font-family: inherit;
 }
 #divHinhAnhTimKiem button {
     max-height: 32px;
@@ -80,6 +86,7 @@
 }
 .search{
     display: inline-flex;
+    position: relative;
 }
 #divHinhAnhTimKiem button:hover{
     border-radius:10px;
@@ -101,7 +108,7 @@
     /* margin-bottom: 20%; */
 }
 div#divHinhAnhTimKiem {
-    max-height: 32px;
+    max-heigh   t: 32px;
 }
 .DangKyDangNhap a{
     margin-right:5px;
@@ -137,7 +144,7 @@ a.button:hover {
     margin-left: 10px;
 }
 .itemNXB:hover {
-    color: #5fc1bd;
+    color: #fff;
     transition: 500ms all;
 }
 
@@ -145,24 +152,29 @@ a.button:hover {
     margin:10px;
     display:flex;
 }
-#HinhAnh{
-    margin-right:20px;
+#HinhAnh {
+    margin-right: 20px;
+    width: 30vw;
+    display: grid;
+    place-items: center;
 }
-#HinhAnh > img{
-    height: 200px;
-    width: 200px;
+#HinhAnh > img {
+    justify-self: center;
+    object-fit: cover;
 }
 .margin-b{
     margin-bottom:10px;
 }
 #btnGioHang {
     width: 100%;
-    height: 30px;
+    
     background: #14a19a;
     border:none;
     color:#fff;
     transition: 500ms all ease-in;
     cursor:pointer;
+    padding: 20px 0;
+    outline: none;
 }
     #btnGioHang:hover {
         background: #5fc1bd
@@ -189,6 +201,61 @@ div#SanPham {
 div#ThongTin {
     text-align: center;
 }
-div#SanPham:hover {
+/*div#SanPham:hover {
     box-shadow: -2px -2px 4px 0px rgb(225,225,225), 2px 2px 4px 0px rgb(225,225,225);
+}*/
+
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 2rem;
+}
+
+.grid-2{
+    grid-column: span 2;
+}
+.grid-3 {
+    grid-column: span 3;
+}
+.grid-4 {
+    grid-column: span 4;
+}
+.grid-5 {
+    grid-column: span 5;
+}
+.grid-6 {
+    grid-column: span 6;
+}
+.grid-7 {
+    grid-column: span 7;
+}
+.grid-8{
+    grid-column: span 8;
+}
+
+.chude{
+    display: flex;
+    flex-direction: column;
+}
+
+
+footer {
+    padding: 40px 20px;
+    background: #091931;
+}
+
+.chude__link{
+    transition: 350ms all;
+}
+
+
+.chude__link:hover{
+    color: #fff;
+}
+
+.storename{
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }

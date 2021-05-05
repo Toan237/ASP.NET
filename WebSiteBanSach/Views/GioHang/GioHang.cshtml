@@ -4,8 +4,7 @@
     ViewBag.Title = "GioHang";
     Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
 }
-@section NoiDungBenPhai{
-    <h2>GioHang</h2>
+    <h2>GioHang</h2>    
     <table id="divGioHang">
         <tr>
             <td>Mã sách</td>
@@ -62,14 +61,16 @@
 
 @*Css gio hang*@
 <style>
-    h2 {
-        margin-left: 10%;
-    }
+
 
     #divGioHang {
         border: 1px solid #EEEEEE;
-        margin-left: 10%;
+        box-shadow: 0 10px 30px rgb(0 0 0 / 10%);
+        background: #fff;
+        border-radius: 10px;
     }
+
+   
 
         #divGioHang td {
             padding: 10px;

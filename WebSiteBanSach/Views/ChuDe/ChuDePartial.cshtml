@@ -2,12 +2,13 @@
 @using WebSiteBanSach.Models;
 @model List<ChuDe>
 
-<div class="flex">
+<div class="chude">
+    <h1>Chủ Đề</h1>
     @foreach (var item in Model)
     {
-        <a href="@Url.Action("SachTheoChuDe",new { @MaChuDe=item.MaChuDe})" class="button">@item.TenChuDe</a>
+        <a href="@Url.Action("SachTheoChuDe",new { @MaChuDe=item.MaChuDe})" class="chude__link">@item.TenChuDe</a>
     }
-    <a href="@Url.Action("DanhMucChuDe")" class="button">Chủ đề khác...</a>
+    <a href="@Url.Action("DanhMucChuDe")" class="chude__link">Chủ đề khác...</a>
 </div>
 @*<a href="#" class="button">Khoa học</a>
 

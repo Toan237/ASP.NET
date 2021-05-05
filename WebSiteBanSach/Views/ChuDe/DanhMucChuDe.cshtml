@@ -1,21 +1,24 @@
-﻿@using WebSiteBanSach.Models;
+﻿<!--@using WebSiteBanSach.Models;
 @model List<ChuDe>
 @{
     ViewBag.Title = "DanhMucChuDe";
     Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
-}
+}-->
 
 @*Hiển thị danh mục chủ đề*@
-<div class="ChuDe">
-    @foreach (var item in Model)
-    {
-        <a style="width:280px; font-size:11pt;" href="@Url.Action("SachTheoChuDe",new { @MaChuDe=item.MaChuDe})" class="button">@item.TenChuDe</a>
-        <br />
-        <br />
-    }
+<!--<div class="container">
+    <div class="grid">
+        @foreach (var item in Model)
+        {
+            <a style="width:280px; font-size:11pt;" href="@Url.Action("SachTheoChuDe",new { @MaChuDe=item.MaChuDe})" class="grid-3">@item.TenChuDe</a>
+            <br />
+            <br />
+        }
+    </div>
 </div>
+
 <style>
-    .ChuDe{
-        margin-left:160px;
+    .ChuDe {
+        margin-left: 160px;
     }
-</style>
+</style>-->

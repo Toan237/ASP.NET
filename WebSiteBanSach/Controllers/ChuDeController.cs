@@ -34,9 +34,9 @@ namespace WebSiteBanSach.Controllers
             return View(lstSach);
         }
         // Hiển thị các chủ đề
-        public ViewResult DanhMucChuDe()
-        {
-            return View(db.ChuDes.ToList());
-        }
+        //public ViewResult DanhMucChuDe()
+        //{
+        //    return View(db.ChuDes.ToList());
+        //}
     }
 }

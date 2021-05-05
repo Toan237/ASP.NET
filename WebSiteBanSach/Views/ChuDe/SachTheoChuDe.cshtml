@@ -10,19 +10,10 @@
 
 
 <hr />
-@section noiDungbenPhai{
-    <div id="divBody">
-        <h2 >Danh mục chủ đề</h2>
-        @*Hien thi danh muc chủ đề*@
-        @*
-            <div style="float:left; width:30%;">
-                @foreach (var item in (List<ChuDe>)ViewBag.lstChuDe)
-                {
-                    <a id="btnChuDe" style="width:250px; font-size: 11pt; color: aliceblue; text-decoration:none;">@item.TenChuDe</a>
-                    <br />
-                }
-            </div>
-        *@
+<div id="divBody">
+    <div class="container">
+
+        <h2>Sách theo chủ đề</h2>
 
         @*Hiển thị danh sách theo chủ đề*@
 
@@ -38,41 +29,38 @@
                 @foreach (var item in Model)
                 {
                     i++;
-                <a href="@Url.Action("XemChiTiet","Sach", new { @MaSach=item.MaSach})">
-                    <div id="SanPham">
-                        <div id="AnhBia"><img src="@Url.Content("~/HinhAnhSach/"+item.AnhBia)" /></div>
-                        <div id="ThongTin">
-                            @if (item.TenSach.Length < 35)
-                            {
-                                <div id="TenSach" title="@item.TenSach">@item.TenSach</div>
-                            }
-                            else
-                            {
-                                <div id="TenSach" title="@item.TenSach">@item.TenSach.Substring(0, 35) ...</div>
-                            }
+                    <a href="@Url.Action("XemChiTiet","Sach", new { @MaSach=item.MaSach})">
+                        <div id="SanPham">
+                            <div id="AnhBia"><img src="@Url.Content("~/HinhAnhSach/"+item.AnhBia)" /></div>
+                            <div id="ThongTin">
+                                @if (item.TenSach.Length < 35)
+                                {
+                                    <div id="TenSach" title="@item.TenSach">@item.TenSach</div>
+                                }
+                                else
+                                {
+                                    <div id="TenSach" title="@item.TenSach">@item.TenSach.Substring(0, 35) ...</div>
+                                }
 
-                            <div id="DonGia" style="color:orange;"><font color="Green">Giá:</font>@item.GiaBan</div>
+                                <div id="DonGia" style="color:orange;"><font color="Green">Giá:</font>@item.GiaBan</div>
+                            </div>
                         </div>
-                    </div>
-                </a>
+                    </a>
                     if (i % 3 == 0)
                     {
-                    <div style="clear:both"></div>
+                        <div style="clear:both"></div>
                     }
-                    }
-</div>
+                }
+            </div>
         }
     </div>
-}
+
+</div>
 <div style="clear:both"></div>
 <style>
-    .item {
-        display: none;
-    }
+     
     .rightSide{
         margin:unset;
     }
-    #NoiDung{
-        display:none;
-    }
+     
 </style>
