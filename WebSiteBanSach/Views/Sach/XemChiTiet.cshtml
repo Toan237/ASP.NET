@@ -12,20 +12,22 @@
 
     #divMenuSlider {
         display: none;
+        
     }
 </style>
 @section NoiDungBenPhai {
 
     @*Thông tin sách*@
+<div class="detail">
     <div id="HinhAnh">
-        <img  src="@Url.Content("~/HinhAnhSach/"+Model.AnhBia)" />
+        <img src="@Url.Content("~/HinhAnhSach/"+Model.AnhBia)" />
     </div>
     <div id="ThongTin">
-        <div id="TenSach">Tên sách: @Model.TenSach</div>
-        <div id="ChuDe">Chủ đề: @ViewBag.TenChuDe</div>
-        <div id="NhaXuatBan">Nhà xuất bản: @ViewBag.NhaXuatBan</div>
-        <div id="Mota">Nội dung tóm tắt:  @Html.Raw(Model.MoTa)</div>
-        <div id="Gia"><span style="color:green; font-weight:normal;">Đơn giá:</span><br /><span id="Gia">@string.Format("{0:0,0}", Model.GiaBan) VNĐ</span></div>
+        <div class="margin-b" id="TenSach"></div>
+        <div class="margin-b" id="ChuDe">Chủ đề: @ViewBag.TenChuDe</div>
+        <div class="margin-b" id="NhaXuatBan">Nhà xuất bản: @ViewBag.NhaXuatBan</div>
+        <div class="margin-b" id="Mota">Nội dung tóm tắt:  @Html.Raw(Model.MoTa)</div>
+        <div class="margin-b" id="Gia"><span style="color: #5fc1bd;font-weight: normal;">Đơn giá:</span><br /><span id="Gia">@string.Format("{0:0,0}", Model.GiaBan) VNĐ</span></div>
         <br />
         @using (Html.BeginForm("ThemGioHang", "GioHang", new { @iMaSach = Model.MaSach, @strURL = Request.Url.ToString() }))
         {
@@ -33,52 +35,22 @@
         }
 
     </div>
+</div>
     <div style="clear:both"></div>
 }
 @*<div>Mã sách: @Model.MaSach</div>*@
 <style>
-    #HinhAnh {
-        float: left;
-        width:100px;
-        height:250px;
-    }
 
-    #ThongTin {
-        float: left;
+    #ThongTin { 
         width: 600px;
     }
-
-    #TenSach {
-        font-weight: normal;
-        font-size: 20pt;
-        height: auto;
-        word-wrap: break-word; /*canh nội dung tự xuống dòng*/
-        
+    #ThongTin {
+        font-size: 18px !important;
     }
-
-    #ChuDe, #NhaXuatBan {
-        font-size: 15pt;
-        font-weight: normal;
-        color: black;
-        height: auto;
-    }
-    #Mota{
-        font-weight:normal;
-        color:black;
+    #TenSach{
         word-wrap:break-word;
-        height:auto;
     }
-    #Gia span#Gia {
-        font-weight:normal;
-        color:orange;
-        font-size:25pt;
-        height:auto;
-    }
-    #btnGioHang {
-        font-family: 'FontAwesome','Segoe UI';
-        background-color:red;
-    }
-    #btnGioHang :hover {
-        background-color: #a30a11;
-    }
+    
+
+   
 </style>

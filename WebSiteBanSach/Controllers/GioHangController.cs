@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -179,7 +180,7 @@ namespace WebSiteBanSach.Controllers
                 ctDH.MaSach = item.iMaSach;
                 ctDH.SoLuong = item.iSoLuong;
                 ctDH.DonGia = item.dDonGia.ToString();
-                db.ChiTietDonHangs.Add(ctDH);
+                //db.ChiTietDonHangs.Add(ctDH);
             }
             db.SaveChanges();
             return RedirectToAction("Index","Home");

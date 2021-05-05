@@ -146,20 +146,30 @@
     <div style="clear:both"></div>
     @*Nha xuất bản*@
     <section class="blank items">
-        <div id="divLeft">
+        <div class="flex">
             <div class="item">
                 <div class="item-info">
-                    @*Action partialview*@
-                    @Html.Action("NhaXuatBanPartial","NhaXuatBan")
-                    
+                    @Html.Action("NhaXuatBanPartial", "NhaXuatBan")
                 </div>
             </div>
+            <div class="rightSide">
+                @RenderSection("NoiDungBenPhai", false)
+            </div>
         </div>
-        <div id="divRight">
-            @RenderSection("NoiDungBenPhai",false)
+        <!--<div id="divLeft">
+            <div class="item">
+                <div class="item-info">-->
+                    @*Action partialview*@
+                    @*@Html.Action("NhaXuatBanPartial","NhaXuatBan")*@
+                    
+                <!--</div>
+            </div>
         </div>
+        <div id="divRight"> -->
+            @*@RenderSection("NoiDungBenPhai",false)*@
+        @*</div>
         <div style="clear:both"></div>
-        <a href="#" class="button button-buy">Một cuốn sách dù dở đến đâu ta cũng thu lượm được vài điều đặc biệt của nó.</a>
+        <a href="#" class="button button-buy">Một cuốn sách dù dở đến đâu ta cũng thu lượm được vài điều đặc biệt của nó.</a>*@
     </section>
 
     

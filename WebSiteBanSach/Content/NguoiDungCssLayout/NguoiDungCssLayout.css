@@ -20,21 +20,21 @@
 }
 .navMenu li {
     display: inline;
-    border-right: solid 1px rgba(0,0,0,.5);
     padding: 20px;
     padding-top: 19px;
     padding-bottom: 22px;
     -webkit-transition: all .5s ease-out;
     -moz-transition: all .5s ease-out;
 }
-.navMenu li:hover {
-   background-color:rgba(0,0,0,.5);
-   -webkit-transition:all .5s ease-out;
-   -moz-transition:all .5s ease-out; 
-}
-.navMenu a:hover{
-    text-decoration:none;
-}
+    .navMenu li:hover {
+        background-color: #5fc1bd;
+        -webkit-transition: all .5s ease-out;
+        -moz-transition: all .5s ease-out;
+    }
+    .navMenu a:hover {
+        text-decoration: none;
+
+    }
 
 #txtTimKiem {
     float:left;
@@ -109,3 +109,61 @@ div#divHinhAnhTimKiem {
 .DangKyDangNhap a:hover {
      color: #14a19a
 }
+.activity img {
+    height:50px;
+    width:50px;
+    object-fit: cover;
+}
+.flex{
+    display:flex;
+}
+a:hover{
+    text-decoration:none;
+
+}
+a.button {
+        background-color: #14a19a;
+        margin-right:10px;
+ }
+a.button:hover {
+    background: #5fc1bd !important;
+    
+}
+.rightSide {
+    margin-left: 30px;
+    background-color: #fff;
+}
+.itemNXB a {
+    margin-left: 10px;
+}
+.itemNXB:hover {
+    color: #5fc1bd;
+    transition: 500ms all;
+}
+
+.detail{
+    margin:10px;
+    display:flex;
+}
+#HinhAnh{
+    margin-right:20px;
+}
+#HinhAnh > img{
+    height: 200px;
+    width: 200px;
+}
+.margin-b{
+    margin-bottom:10px;
+}
+#btnGioHang {
+    width: 100%;
+    height: 30px;
+    background: #14a19a;
+    border:none;
+    color:#fff;
+    transition: 500ms all ease-in;
+    cursor:pointer;
+}
+    #btnGioHang:hover {
+        background: #5fc1bd
+    }
