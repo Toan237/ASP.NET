@@ -52,6 +52,13 @@ namespace WebSiteBanSach.Controllers
             {
                 //ViewBag.ThongBao = "Chúc mừng bạn đăng nhập thành công !";
                 Session["TaiKhoan"] = kh.MaKh;
+                Debug.WriteLine(Session["TaiKhoan"]);
+                if (kh.MaKh == 1)
+                {
+                    Debug.WriteLine("Admin");
+                    return RedirectToAction("Index", "QuanLySanPham");
+                    
+                }
                 
                 return RedirectToAction("Index", "Home"); ;
             }

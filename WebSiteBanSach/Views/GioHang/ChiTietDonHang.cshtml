@@ -7,7 +7,7 @@
     Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
 }
 <h2>ChiTietDonHang</h2>
-<table id="divGioHang">
+<table id="divGioHang table">
     <tr>
         <td>Ngày đặt</td>
         <td>Tên sách</td>
@@ -45,42 +45,16 @@
     }
 
 </table>
-    @*<table id="divGioHang">
-            <tr>
-                <td>Mã sách</td>
-
-                <td>Tên sách</td>
-
-                <td>Ảnh bìa</td>
-
-                <td>Đơn giá</td>
-
-                <td>Số lượng</td>
-
-                <td>Thành tiền</td>
-            </tr>
-
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>@item.iMaSach</td>
-
-                    <td>@item.sTenSach</td>
-
-                    <td><a href="@Url.Action("XemChiTiet", "Sach",new { @MaSach=item.iMaSach})"><img src="@Url.Content("~/HinhAnhSach/"+item.sAnhBia)" width="50" height="50" /></a></td>
-
-                    <td>
-                        @string.Format("{0:0,0}", item.dDonGia.ToString()) VNĐ
-                    </td>
-
-                    <td>@item.iSoLuong</td>
-
-                    <td>
-                        @string.Format("{0:0,0}", item.ThanhTien.ToString()) VNĐ
-                    </td>
-
-                </tr>
-            }
-        </table>*@
-
-
+  <style>
+      td {
+          padding: 10px;
+      }
+      table#divGioHang\ table {
+          width: 100%;
+          
+      }
+      tbody {
+          background: #fff;
+          /* margin: 10px; */
+      }
+  </style>
