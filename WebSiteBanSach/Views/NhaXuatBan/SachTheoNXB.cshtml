@@ -6,31 +6,49 @@
     Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
 }
 
+<div id="divBody">
+    <div class="container">
+
+        <h2>Sách theo nhà xuất bản</h2>
+
+        @*Hiển thị danh sách theo chủ đề*@
+
+        @if (Model.Count == 0)
+        {
+            <h1>@ViewBag.Sach</h1>
+        }
 
 
-@{ int i = 0;}
-@foreach (var item in Model)
-{
-    i++;
-    <div id="SanPham">
-        <div id="AnhBia"><img src="@Url.Content("~/HinhAnhSach/"+item.AnhBia)" width="100" height="150" /></div>
-        <div id="ThongTin">
-            @if (item.TenSach.Length < 35)
-            {
-                <div id="TenSach" title="@item.TenSach">@item.TenSach</div>
-            }
-            else
-            {
-                <div id="TenSach" title="@item.TenSach">@item.TenSach.Substring(0, 35) ...</div>
-            }
+        @{ int i = 0;
 
-            <div id="DonGia" style="color:orange;"><font color="Green">Gía:</font>@item.GiaBan</div>
-        </div>
+            <div class="productGroup">
+                @foreach (var item in Model)
+                {
+                    i++;
+                    <a href="@Url.Action("XemChiTiet","Sach", new { @MaSach=item.MaSach})">
+                        <div id="SanPham">
+                            <div id="AnhBia"><img src="@Url.Content("~/HinhAnhSach/"+item.AnhBia)" /></div>
+                            <div id="ThongTin">
+                                @if (item.TenSach.Length < 35)
+                                {
+                                    <div id="TenSach" title="@item.TenSach">@item.TenSach</div>
+                                }
+                                else
+                                {
+                                    <div id="TenSach" title="@item.TenSach">@item.TenSach.Substring(0, 35) ...</div>
+                                }
+
+                                <div id="DonGia" style="color:orange;"><font color="Green">Giá:</font>@item.GiaBan</div>
+                            </div>
+                        </div>
+                    </a>
+                    if (i % 3 == 0)
+                    {
+                        <div style="clear:both"></div>
+                    }
+                }
+            </div>
+        }
     </div>
-    if (i % 3 == 0)
-    {
-        <div style="clear:both"></div>
-    }
-}
-        <div style="clear:both"></div>
 
+</div>
